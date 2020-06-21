@@ -6,14 +6,18 @@ app.config.from_object(os.environ['APP_SETTINGS'])
 
 
 
-@app.route('/')
-def hello():
-    return "Hello World!"
+@app.route('/current/<mensa>')
+def current(mensa):
+    return "Current"
 
 
-@app.route('/<name>')
-def hello_name(name):
-    return "Hello {}!".format(name)
+@app.route('/history/<mensa>/<date>')
+def history(mensa, date):
+    return "History"
+
+@app.route('/prediction/<mensa>/<date>')
+def history(mensa, date):
+    return "Prediction"
 
 if __name__ == '__main__':
     app.run()
